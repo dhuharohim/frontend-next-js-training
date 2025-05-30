@@ -38,7 +38,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       items: [
         {
           title: "List",
-          url: "/list",
+          url: "/books/list",
           icon: IconEye,
           isActive: pathname?.includes("/books/list"),
         },
