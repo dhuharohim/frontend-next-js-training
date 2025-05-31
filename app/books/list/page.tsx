@@ -114,13 +114,12 @@ export default function BookListPage() {
     const fetchOrders = async () => {
       try {
         const res = await fetchGet("books");
-        const data = await res.json();
-        const parsed = BooksSchema.safeParse(data);
+        const dataJson = await res.json();
+        const parsed = BooksSchema.safeParse(dataJson.data);
         if (parsed.success) {
           setBooks(parsed.data);
         } else {
           console.log(parsed);
-          // setError("Invalid data format received");
         }
       } catch (err) {
         console.error("Fetch error:", err);

@@ -13,20 +13,12 @@ class HttpClient {
     }
 
     private async handleResponse(response: Response) {
-        const result = await response.json();
         if (!response.ok) {
-            // For more detailed error handling
-            const statusCode = response.status;
+            const result = await response.json();
             const errorMessage = result.message || 'An unknown error occurred';
-
-            return NextResponse.json(
-                { error: errorMessage, details: result },
-                { status: statusCode }
-            );
+            throw new Error(errorMessage);
         }
-
-        // Return data directly if it exists, otherwise return the whole result
-        return NextResponse.json(result.data || result);
+        return response;
     }
 
     public async get(url: string) {

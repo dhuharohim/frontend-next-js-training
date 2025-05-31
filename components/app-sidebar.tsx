@@ -42,6 +42,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           icon: IconEye,
           isActive: pathname?.includes("/books/list"),
         },
+        {
+          title: "Create",
+          url: "/books/create",
+          icon: IconEye,
+          isActive: pathname?.includes("/books/create"),
+        },
       ],
     },
   ];
